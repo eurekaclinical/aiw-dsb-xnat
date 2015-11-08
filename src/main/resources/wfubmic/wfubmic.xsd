@@ -1,0 +1,2819 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 (http://www.altova.com) by Yaorong Ge (Wake Forest University) -->
+<xs:schema xmlns:wfubmic="http://imagelab.wfubmc.edu/wfubmic" xmlns:xdat="http://nrg.wustl.edu/xdat" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xnat="http://nrg.wustl.edu/xnat" xmlns:jhsmr="http://imagelab.wfubmc.edu/jhsmr" targetNamespace="http://imagelab.wfubmc.edu/wfubmic" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../xnat/xnat.xsd"/>
+	<xs:import namespace="http://imagelab.wfubmc.edu/jhsmr" schemaLocation="../jhsmr/jhsmr.xsd"/>
+	<xs:element name="mipav" type="wfubmic:mipavData"/>
+	<xs:element name="liverMipav" type="wfubmic:liverMipavData"/>
+	<xs:element name="abdMipav" type="wfubmic:abdMipavData"/>
+	<xs:element name="musMipav" type="wfubmic:musMipavData"/>
+	<xs:element name="thighMipav" type="wfubmic:thighMipavData"/>
+	<xs:element name="cacTera" type="wfubmic:cacTeraData"/>
+	<xs:element name="aocaTera" type="wfubmic:aocaTeraData"/>
+	<xs:element name="ClinicalAssessment_predict" type="wfubmic:clinicalReport_predict_Data"/>
+	<xs:element name="ClinicalAssessment_cardia25" type="wfubmic:clinicalReport_cardia25_Data"/>
+	<xs:element name="ClinicalAssessment_tobago" type="wfubmic:clinicalReport_tobago_Data"/>
+	<xs:element name="ClinicalAssessment_aadhs2" type="wfubmic:clinicalReport_aadhs2_Data"/>
+	<xs:element name="DoseReport_aadhs2" type="wfubmic:doseReport_aadhs2_Data"/>
+	<xs:element name="aadhs_ctresults" type="wfubmic:aadhs_CtResults_Data"/>
+	<xs:element name="slicer3d_chest" type="wfubmic:slicer3d_chest_Data"/>
+	<xs:element name="slicer3d_pvfat" type="wfubmic:slicer3d_pvfat_Data"/>
+	<xs:element name="ClinicalAssessment_mesa" type="wfubmic:clinicalReport_mesa_Data"/>
+	<xs:element name="ClinicalAssessment_diva" type="wfubmic:clinicalReport_diva_Data"/>
+	<xs:element name="sliceomatic" type="wfubmic:sliceomatic_Data"/>
+	<xs:element name="osirixPericardialFat" type="wfubmic:osirixPericardialFat_Data"/>
+	<xs:element name="cim" type="wfubmic:cimData"/>
+	<xs:complexType name="mipavData">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:sequence>
+					<xs:element name="bcVolume" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="analyst" type="xs:string" minOccurs="0"/>
+								<xs:element name="sliceThickness" type="xs:float" minOccurs="0"/>
+								<xs:element name="date" type="xs:date" minOccurs="0"/>
+								<xs:element name="patientID" type="xs:string" minOccurs="0"/>
+								<xs:element name="studyID" type="xs:string" minOccurs="0"/>
+								<xs:element name="seriesNumber" type="xs:integer" minOccurs="0"/>
+								<xs:element name="sopUID" type="xs:string" minOccurs="0"/>
+								<xs:element name="modality" type="xs:string" minOccurs="0"/>
+								<xs:element name="imfVolume" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Intermuscular fat volume</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="totalMeasured" type="xs:float" minOccurs="0"/>
+								<xs:element name="startSlice" type="xs:integer" minOccurs="0"/>
+								<xs:element name="endSlice" type="xs:integer" minOccurs="0"/>
+								<xs:element name="measurements" minOccurs="0" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="voiName" type="xs:string" minOccurs="0"/>
+											<xs:element name="totalVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="voiColor" type="xs:string" minOccurs="0"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="bcAttenuation" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="analyst" type="xs:string" minOccurs="0"/>
+								<xs:element name="date" type="xs:date" minOccurs="0"/>
+								<xs:element name="patientID" type="xs:string" minOccurs="0"/>
+								<xs:element name="studyID" type="xs:string" minOccurs="0"/>
+								<xs:element name="seriesNumber" type="xs:integer" minOccurs="0"/>
+								<xs:element name="instanceNumber" type="xs:integer" minOccurs="0"/>
+								<xs:element name="sopUID" type="xs:string" minOccurs="0"/>
+								<xs:element name="fileName" type="xs:string" minOccurs="0"/>
+								<xs:element name="modality" type="xs:string" minOccurs="0"/>
+								<xs:element name="numVOIs" type="xs:integer" minOccurs="0"/>
+								<xs:element name="measurements" minOccurs="0" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="voiName" type="xs:string" minOccurs="0"/>
+											<xs:element name="area" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(mm^2)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="avg" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(HU)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="min" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(HU)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="max" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(HU)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="std" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(HU)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="serialNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="liverMipavData">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:sequence>
+					<xs:element name="liver" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="analyst" type="xs:string" minOccurs="0"/>
+								<xs:element name="analystDate" type="xs:date" minOccurs="0"/>
+								<xs:element name="patientID" type="xs:string" minOccurs="0"/>
+								<xs:element name="studyID" type="xs:string" minOccurs="0"/>
+								<xs:element name="seriesNumber" type="xs:integer" minOccurs="0"/>
+								<xs:element name="instanceNumber" type="xs:integer" minOccurs="0"/>
+								<xs:element name="sopUID" type="xs:string" minOccurs="0"/>
+								<xs:element name="fileName" type="xs:string" minOccurs="0"/>
+								<xs:element name="modality" type="xs:string" minOccurs="0"/>
+								<xs:element name="studyDate" type="xs:date" minOccurs="0"/>
+								<xs:element name="numVOIs" type="xs:integer" minOccurs="0"/>
+								<xs:element name="measurements" minOccurs="0" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="voiName" type="xs:string" minOccurs="0"/>
+											<xs:element name="area" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(mm^2)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="avg" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(HU)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="min" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(HU)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="max" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(HU)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="std" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(HU)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="serialNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="abdMipavData">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:sequence>
+					<xs:element name="abd" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="analyst" type="xs:string" minOccurs="0"/>
+								<xs:element name="sliceThickness" type="xs:float" minOccurs="0"/>
+								<xs:element name="analystDate" type="xs:date" minOccurs="0"/>
+								<xs:element name="patientID" type="xs:string" minOccurs="0"/>
+								<xs:element name="studyID" type="xs:string" minOccurs="0"/>
+								<xs:element name="seriesNumber" type="xs:integer" minOccurs="0"/>
+								<xs:element name="sopUID" type="xs:string" minOccurs="0"/>
+								<xs:element name="studyDate" type="xs:date" minOccurs="0"/>
+								<xs:element name="modality" type="xs:string" minOccurs="0"/>
+								<xs:element name="imfVolume" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Intermuscular fat volume</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="totalMeasured" type="xs:float" minOccurs="0"/>
+								<xs:element name="startSlice" type="xs:integer" minOccurs="0"/>
+								<xs:element name="endSlice" type="xs:integer" minOccurs="0"/>
+								<xs:element name="fatThresholdStart" type="xs:integer" minOccurs="0"/>
+								<xs:element name="fatThresholdEnd" type="xs:integer" minOccurs="0"/>
+								<xs:element name="muscleThresholdStart" type="xs:integer" minOccurs="0"/>
+								<xs:element name="muscleThresholdEnd" type="xs:integer" minOccurs="0"/>
+								<xs:element name="measurements" minOccurs="0" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="voiName" type="xs:string" minOccurs="0"/>
+											<xs:element name="totalVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="NFatSTVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Non-Fat Soft Tissue(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="NFatSTMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Non-Fat Soft Tissue(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="NFatSTSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Non-Fat Soft Tissue(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="NFatSTMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Non-Fat Soft Tissue(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="NFatSTMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Non-Fat Soft Tissue(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="voiColor" type="xs:string" minOccurs="0"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="serialNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="musMipavData">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:sequence>
+					<xs:element name="mus" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="analyst" type="xs:string" minOccurs="0"/>
+								<xs:element name="sliceThickness" type="xs:float" minOccurs="0"/>
+								<xs:element name="analystDate" type="xs:date" minOccurs="0"/>
+								<xs:element name="patientID" type="xs:string" minOccurs="0"/>
+								<xs:element name="studyID" type="xs:string" minOccurs="0"/>
+								<xs:element name="seriesNumber" type="xs:integer" minOccurs="0"/>
+								<xs:element name="location" type="xs:string" minOccurs="0"/>
+								<xs:element name="sopUID" type="xs:string" minOccurs="0"/>
+								<xs:element name="studyDate" type="xs:date" minOccurs="0"/>
+								<xs:element name="modality" type="xs:string" minOccurs="0"/>
+								<xs:element name="startSlice" type="xs:integer" minOccurs="0"/>
+								<xs:element name="endSlice" type="xs:integer" minOccurs="0"/>
+								<xs:element name="fatThresholdStart" type="xs:integer" minOccurs="0"/>
+								<xs:element name="fatThresholdEnd" type="xs:integer" minOccurs="0"/>
+								<xs:element name="muscleThresholdStart" type="xs:integer" minOccurs="0"/>
+								<xs:element name="muscleThresholdEnd" type="xs:integer" minOccurs="0"/>
+								<xs:element name="measurements" minOccurs="0" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="voiName" type="xs:string" minOccurs="0"/>
+											<xs:element name="totalVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="NFatSTVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Non-Fat Soft Tissue(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="NFatSTMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Non-Fat Soft Tissue(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="NFatSTSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Non-Fat Soft Tissue(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="NFatSTMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Non-Fat Soft Tissue(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="NFatSTMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Non-Fat Soft Tissue(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="voiColor" type="xs:string" minOccurs="0"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="serialNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="thighMipavData">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:sequence>
+					<xs:element name="thigh" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="analyst" type="xs:string" minOccurs="0"/>
+								<xs:element name="sliceThickness" type="xs:float" minOccurs="0"/>
+								<xs:element name="analystDate" type="xs:date" minOccurs="0"/>
+								<xs:element name="patientID" type="xs:string" minOccurs="0"/>
+								<xs:element name="studyID" type="xs:string" minOccurs="0"/>
+								<xs:element name="seriesNumber" type="xs:integer" minOccurs="0"/>
+								<xs:element name="location" type="xs:string" minOccurs="0"/>
+								<xs:element name="sopUID" type="xs:string" minOccurs="0"/>
+								<xs:element name="studyDate" type="xs:date" minOccurs="0"/>
+								<xs:element name="modality" type="xs:string" minOccurs="0"/>
+								<xs:element name="startSlice" type="xs:integer" minOccurs="0"/>
+								<xs:element name="endSlice" type="xs:integer" minOccurs="0"/>
+								<xs:element name="fatThresholdStart" type="xs:integer" minOccurs="0"/>
+								<xs:element name="fatThresholdEnd" type="xs:integer" minOccurs="0"/>
+								<xs:element name="muscleThresholdStart" type="xs:integer" minOccurs="0"/>
+								<xs:element name="muscleThresholdEnd" type="xs:integer" minOccurs="0"/>
+								<xs:element name="measurements" minOccurs="0" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="voiName" type="xs:string" minOccurs="0"/>
+											<xs:element name="totalVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="totalMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="fatMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="subcuVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="subcuMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="subcuSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="subcuMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="subcuMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="interMVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="interMMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="interMSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="interMMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="interMMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musVol" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musMean" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musSTD" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musMin" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="musMax" type="xs:float" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>(cm^3)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="voiColor" type="xs:string" minOccurs="0"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="serialNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="cacTeraData">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:sequence>
+					<xs:element name="patientid" type="xs:string" minOccurs="0"/>
+					<xs:element name="patientName" type="xs:string" minOccurs="0"/>
+					<xs:element name="analystDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="seriesInstanceUID" type="xs:string" minOccurs="0"/>
+					<xs:element name="calibrationTargetArea" type="xs:float" minOccurs="0"/>
+					<xs:element name="calibrationN" type="xs:integer" minOccurs="0"/>
+					<xs:element name="calibrationKnown0" type="xs:float" minOccurs="0"/>
+					<xs:element name="calibrationKnown1" type="xs:float" minOccurs="0"/>
+					<xs:element name="calibrationKnown2" type="xs:float" minOccurs="0"/>
+					<xs:element name="calibrationMeasured0" type="xs:float" minOccurs="0"/>
+					<xs:element name="calibrationMeasured1" type="xs:float" minOccurs="0"/>
+					<xs:element name="calibrationMeasured2" type="xs:float" minOccurs="0"/>
+					<xs:element name="lsqSlope" type="xs:float" minOccurs="0"/>
+					<xs:element name="lsqIntercept" type="xs:float" minOccurs="0"/>
+					<xs:element name="lsqR2" type="xs:float" minOccurs="0"/>
+					<xs:element name="lml" type="xs:integer" minOccurs="0"/>
+					<xs:element name="ladl" type="xs:integer" minOccurs="0"/>
+					<xs:element name="lcxl" type="xs:integer" minOccurs="0"/>
+					<xs:element name="rcal" type="xs:integer" minOccurs="0"/>
+					<xs:element name="totl" type="xs:integer" minOccurs="0"/>
+					<xs:element name="otherl" type="xs:integer" minOccurs="0"/>
+					<xs:element name="lms" type="xs:float" minOccurs="0"/>
+					<xs:element name="lads" type="xs:float" minOccurs="0"/>
+					<xs:element name="lcxs" type="xs:float" minOccurs="0"/>
+					<xs:element name="rcas" type="xs:float" minOccurs="0"/>
+					<xs:element name="tots" type="xs:float" minOccurs="0"/>
+					<xs:element name="others" type="xs:float" minOccurs="0"/>
+					<xs:element name="lmv" type="xs:float" minOccurs="0"/>
+					<xs:element name="ladv" type="xs:float" minOccurs="0"/>
+					<xs:element name="lcxv" type="xs:float" minOccurs="0"/>
+					<xs:element name="rcav" type="xs:float" minOccurs="0"/>
+					<xs:element name="totv" type="xs:float" minOccurs="0"/>
+					<xs:element name="otherv" type="xs:float" minOccurs="0"/>
+					<xs:element name="lmmean" type="xs:float" minOccurs="0"/>
+					<xs:element name="ladmean" type="xs:float" minOccurs="0"/>
+					<xs:element name="lcxmean" type="xs:float" minOccurs="0"/>
+					<xs:element name="rcamean" type="xs:float" minOccurs="0"/>
+					<xs:element name="totmean" type="xs:float" minOccurs="0"/>
+					<xs:element name="othermean" type="xs:float" minOccurs="0"/>
+					<xs:element name="lmmass" type="xs:float" minOccurs="0"/>
+					<xs:element name="ladmass" type="xs:float" minOccurs="0"/>
+					<xs:element name="lcxmass" type="xs:float" minOccurs="0"/>
+					<xs:element name="rcamass" type="xs:float" minOccurs="0"/>
+					<xs:element name="totmass" type="xs:float" minOccurs="0"/>
+					<xs:element name="othermass" type="xs:float" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="serialNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="aocaTeraData">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:sequence>
+					<xs:element name="patientid" type="xs:string" minOccurs="0"/>
+					<xs:element name="patientName" type="xs:string" minOccurs="0"/>
+					<xs:element name="analystDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="seriesInstanceUID" type="xs:string" minOccurs="0"/>
+					<xs:element name="calibrationTargetArea" type="xs:float" minOccurs="0"/>
+					<xs:element name="calibrationN" type="xs:integer" minOccurs="0"/>
+					<xs:element name="calibrationKnown0" type="xs:float" minOccurs="0"/>
+					<xs:element name="calibrationKnown1" type="xs:float" minOccurs="0"/>
+					<xs:element name="calibrationKnown2" type="xs:float" minOccurs="0"/>
+					<xs:element name="calibrationMeasured0" type="xs:float" minOccurs="0"/>
+					<xs:element name="calibrationMeasured1" type="xs:float" minOccurs="0"/>
+					<xs:element name="calibrationMeasured2" type="xs:float" minOccurs="0"/>
+					<xs:element name="lsqSlope" type="xs:float" minOccurs="0"/>
+					<xs:element name="lsqIntercept" type="xs:float" minOccurs="0"/>
+					<xs:element name="lsqR2" type="xs:float" minOccurs="0"/>
+					<xs:element name="lml" type="xs:integer" minOccurs="0"/>
+					<xs:element name="ladl" type="xs:integer" minOccurs="0"/>
+					<xs:element name="lcxl" type="xs:integer" minOccurs="0"/>
+					<xs:element name="rcal" type="xs:integer" minOccurs="0"/>
+					<xs:element name="totl" type="xs:integer" minOccurs="0"/>
+					<xs:element name="otherl" type="xs:integer" minOccurs="0"/>
+					<xs:element name="lms" type="xs:float" minOccurs="0"/>
+					<xs:element name="lads" type="xs:float" minOccurs="0"/>
+					<xs:element name="lcxs" type="xs:float" minOccurs="0"/>
+					<xs:element name="rcas" type="xs:float" minOccurs="0"/>
+					<xs:element name="tots" type="xs:float" minOccurs="0"/>
+					<xs:element name="others" type="xs:float" minOccurs="0"/>
+					<xs:element name="lmv" type="xs:float" minOccurs="0"/>
+					<xs:element name="ladv" type="xs:float" minOccurs="0"/>
+					<xs:element name="lcxv" type="xs:float" minOccurs="0"/>
+					<xs:element name="rcav" type="xs:float" minOccurs="0"/>
+					<xs:element name="totv" type="xs:float" minOccurs="0"/>
+					<xs:element name="otherv" type="xs:float" minOccurs="0"/>
+					<xs:element name="lmmean" type="xs:float" minOccurs="0"/>
+					<xs:element name="ladmean" type="xs:float" minOccurs="0"/>
+					<xs:element name="lcxmean" type="xs:float" minOccurs="0"/>
+					<xs:element name="rcamean" type="xs:float" minOccurs="0"/>
+					<xs:element name="totmean" type="xs:float" minOccurs="0"/>
+					<xs:element name="othermean" type="xs:float" minOccurs="0"/>
+					<xs:element name="lmmass" type="xs:float" minOccurs="0"/>
+					<xs:element name="ladmass" type="xs:float" minOccurs="0"/>
+					<xs:element name="lcxmass" type="xs:float" minOccurs="0"/>
+					<xs:element name="rcamass" type="xs:float" minOccurs="0"/>
+					<xs:element name="totmass" type="xs:float" minOccurs="0"/>
+					<xs:element name="othermass" type="xs:float" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="serialNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="clinicalReport_predict_Data">
+		<xs:complexContent>
+			<xs:extension base="xnat:mrAssessorData">
+				<xs:sequence>
+					<xs:element name="lvWallMotion" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Within Normal Limits"/>
+											<xs:enumeration value="Abnormal"/>
+											<xs:enumeration value="Poor Image Quality"/>
+											<xs:enumeration value="Other"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="lvEjectionFraction" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:annotation>
+										<xs:documentation>Within Normal Limits (&gt;50%) is retired as of 11/20/08</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Within Normal Limits (&gt;50%)"/>
+											<xs:enumeration value="Within Normal Limits (&gt;=50%)"/>
+											<xs:enumeration value="Mildly Impaired (40-49%)"/>
+											<xs:enumeration value="Significant Abnormality (&lt;40% or hyperdynamic)"/>
+											<xs:enumeration value="Poor Image Quality"/>
+											<xs:enumeration value="Other"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="lvHypertrophy" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Within Normal Limits"/>
+											<xs:enumeration value="Mild Hypertrophy"/>
+											<xs:enumeration value="Significant Abnormality"/>
+											<xs:enumeration value="Poor Image Quality"/>
+											<xs:enumeration value="Other"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="aorta" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Size Within Normal Limits"/>
+											<xs:enumeration value="Mild Enlargement"/>
+											<xs:enumeration value="Significant Abnormality"/>
+											<xs:enumeration value="Poor Image Quality"/>
+											<xs:enumeration value="Other"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="other" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification" minOccurs="0">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Within Normal Limits"/>
+											<xs:enumeration value="Borderline"/>
+											<xs:enumeration value="Significant Abnormality"/>
+											<xs:enumeration value="Poor Image Quality"/>
+											<xs:enumeration value="Other"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="conclusion" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Potentially Significant Findings on Research Cardiovascular MRI"/>
+											<xs:enumeration value="Other Findings of Uncertain Clinical Relevance on Research Cardiovascular MRI"/>
+											<xs:enumeration value="Negative Research Cardiovascular MRI"/>
+											<xs:enumeration value="Poor Image Quality"/>
+											<xs:enumeration value="Other"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="report" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="jhsmr:longString">
+									<xs:attribute name="reporterName" type="xs:string" use="optional"/>
+									<xs:attribute name="reportDate" type="xs:date" use="optional"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="signerName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="signingDate" type="xs:date" use="optional"/>
+				<xs:attribute name="dcmPatientName" type="xs:string" use="optional"/>
+				<xs:attribute name="dcmPatientId" type="xs:string" use="optional"/>
+				<xs:attribute name="scanDate" type="xs:date" use="optional"/>
+				<xs:attribute name="senderName" type="xs:string" use="optional"/>
+				<xs:attribute name="sendDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="clinicalReport_cardia25_Data">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:sequence>
+					<xs:element name="scouts" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Negative"/>
+											<xs:enumeration value="Finding"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="thorax" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Negative"/>
+											<xs:enumeration value="Finding"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="abdomen" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Negative"/>
+											<xs:enumeration value="Finding"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="conclusion" minOccurs="0">
+						<xs:complexType>
+							<xs:all>
+								<xs:element name="negative" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Negative study</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="negativeIncidental" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Negative study. An incidental finding or anatomic variant that may be of future value to the participant is identified</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="abnormality" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Abnormality. An abnormality or unexpected finding that is not considered to be an urgent and immediate life-threatening finding but needs attention and follow-up action as soon as possible</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="infectious" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Reportable infectious abnormality. Findings are potentially suggestive of a reportable infectious disease and require follow-up</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="malignancy" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Findings suspicious for malignancy. Unexpected abnormality that is highly suggestive of malignancy</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="critical" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Critical abnormality. A finding that may be considered life threatening or could result in severe morbidity and require urgent or emergent clinical attention has been found</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:all>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="report" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="jhsmr:longString">
+									<xs:attribute name="reporterName" type="xs:string" use="optional"/>
+									<xs:attribute name="reportDate" type="xs:date" use="optional"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="signerName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="signingDate" type="xs:date" use="optional"/>
+				<xs:attribute name="dcmPatientName" type="xs:string" use="optional"/>
+				<xs:attribute name="dcmPatientId" type="xs:string" use="optional"/>
+				<xs:attribute name="scanDate" type="xs:date" use="optional"/>
+				<xs:attribute name="senderName" type="xs:string" use="optional"/>
+				<xs:attribute name="sendDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="clinicalReport_tobago_Data">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:sequence>
+					<xs:element name="scouts" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Negative"/>
+											<xs:enumeration value="Finding"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="thorax" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Negative"/>
+											<xs:enumeration value="Finding"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="abdomen" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Negative"/>
+											<xs:enumeration value="Finding"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="image_quality" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Unreadable"/>
+											<xs:enumeration value="Below Average"/>
+											<xs:enumeration value="Average"/>
+											<xs:enumeration value="Above Average"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="calcium" minOccurs="0">
+						<xs:complexType>
+							<xs:all>
+								<xs:element name="aortic_valve" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Calcium present in aortic valve</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="ascending_aorta" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Calcium present in ascending aorta</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="descending_aorta" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Calcium present in descending aorta</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="coronary_arteries" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Calcium present in descending coronary arteries</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="abdominal_aorta" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Calcium present in  abdominal aorta</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:all>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="conclusion" minOccurs="0">
+						<xs:complexType>
+							<xs:all>
+								<xs:element name="negative" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Negative study</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="negativeIncidental" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Negative study. An incidental finding or anatomic variant that may be of future value to the participant is identified</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="abnormality" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Abnormality. An abnormality or unexpected finding that is not considered to be an urgent and immediate life-threatening finding but needs attention and follow-up action as soon as possible</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="infectious" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Reportable infectious abnormality. Findings are potentially suggestive of a reportable infectious disease and require follow-up</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="malignancy" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Findings suspicious for malignancy. Unexpected abnormality that is highly suggestive of malignancy</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="critical" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Critical abnormality. A finding that may be considered life threatening or could result in severe morbidity and require urgent or emergent clinical attention has been found</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:all>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="report" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="jhsmr:longString">
+									<xs:attribute name="reporterName" type="xs:string" use="optional"/>
+									<xs:attribute name="reportDate" type="xs:date" use="optional"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="signerName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="signingDate" type="xs:date" use="optional"/>
+				<xs:attribute name="dcmPatientName" type="xs:string" use="optional"/>
+				<xs:attribute name="dcmPatientId" type="xs:string" use="optional"/>
+				<xs:attribute name="scanDate" type="xs:date" use="optional"/>
+				<xs:attribute name="senderName" type="xs:string" use="optional"/>
+				<xs:attribute name="sendDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="clinicalReport_aadhs2_Data">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:sequence>
+					<xs:element name="scouts" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Negative"/>
+											<xs:enumeration value="Finding"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="neck" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Negative"/>
+											<xs:enumeration value="Finding"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="thorax" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Negative"/>
+											<xs:enumeration value="Finding"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="abdomen" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Negative"/>
+											<xs:enumeration value="Finding"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="image_quality" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Unreadable"/>
+											<xs:enumeration value="Below Average"/>
+											<xs:enumeration value="Average"/>
+											<xs:enumeration value="Above Average"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="calcium" minOccurs="0">
+						<xs:complexType>
+							<xs:all>
+								<xs:element name="aortic_valve" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Calcium present in aortic valve</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="ascending_aorta" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Calcium present in ascending aorta</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="descending_aorta" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Calcium present in descending aorta</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="coronary_arteries" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Calcium present in descending coronary arteries</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="abdominal_aorta" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Calcium present in  abdominal aorta</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:all>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="conclusion" minOccurs="0">
+						<xs:complexType>
+							<xs:all>
+								<xs:element name="negative" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Negative study</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="negativeIncidental" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Negative study. An incidental finding or anatomic variant that may be of future value to the participant is identified</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="abnormality" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Abnormality. An abnormality or unexpected finding that is not considered to be an urgent and immediate life-threatening finding but needs attention and follow-up action as soon as possible</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="infectious" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Reportable infectious abnormality. Findings are potentially suggestive of a reportable infectious disease and require follow-up</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="malignancy" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Findings suspicious for malignancy. Unexpected abnormality that is highly suggestive of malignancy</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="critical" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Critical abnormality. A finding that may be considered life threatening or could result in severe morbidity and require urgent or emergent clinical attention has been found</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:all>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="report" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="jhsmr:longString">
+									<xs:attribute name="reporterName" type="xs:string" use="optional"/>
+									<xs:attribute name="reportDate" type="xs:date" use="optional"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="signerName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="confirmedBy" type="xs:string" use="optional"/>
+				<xs:attribute name="signingDate" type="xs:date" use="optional"/>
+				<xs:attribute name="dcmPatientName" type="xs:string" use="optional"/>
+				<xs:attribute name="dcmPatientId" type="xs:string" use="optional"/>
+				<xs:attribute name="scanDate" type="xs:date" use="optional"/>
+				<xs:attribute name="senderName" type="xs:string" use="optional"/>
+				<xs:attribute name="sendDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="doseReport_aadhs2_Data">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:attribute name="patientWeight" type="xs:integer" use="optional"/>
+				<xs:attribute name="totalDLP" type="xs:float" use="optional"/>
+				<xs:attribute name="chestDLP" type="xs:float" use="optional"/>
+				<xs:attribute name="abdomenDLP" type="xs:float" use="optional"/>
+				<xs:attribute name="neckDLP" type="xs:float" use="optional"/>
+				<xs:attribute name="chestMSV" type="xs:float" use="optional"/>
+				<xs:attribute name="abdomenMSV" type="xs:float" use="optional"/>
+				<xs:attribute name="neckMSV" type="xs:float" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="clinicalReport_mesa_Data">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:sequence>
+					<xs:element name="scouts" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Negative"/>
+											<xs:enumeration value="Finding"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="thorax" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Negative"/>
+											<xs:enumeration value="Finding"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="conclusion" minOccurs="0">
+						<xs:complexType>
+							<xs:all>
+								<xs:element name="negative" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Negative study</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="abnormality" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Abnormality. An abnormality or unexpected finding that is not considered to be an urgent and immediate life-threatening finding but needs attention and follow-up action as soon as possible</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="infectious" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Reportable infectious abnormality. Findings are potentially suggestive of a reportable infectious disease and require urgent follow-up</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="malignancy" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Findings suspicious for malignancy. Unexpected abnormality that is suspicious or highly suggestive of malignancy</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="critical" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Critical abnormality. A finding that may be considered life threatening or could result in severe morbidity and require urgent or emergent clinical attention has been found</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:all>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="report" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="jhsmr:longString">
+									<xs:attribute name="reporterName" type="xs:string" use="optional"/>
+									<xs:attribute name="reportDate" type="xs:date" use="optional"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="signerName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="signingDate" type="xs:date" use="optional"/>
+				<xs:attribute name="dcmPatientName" type="xs:string" use="optional"/>
+				<xs:attribute name="dcmPatientId" type="xs:string" use="optional"/>
+				<xs:attribute name="scanDate" type="xs:date" use="optional"/>
+				<xs:attribute name="senderName" type="xs:string" use="optional"/>
+				<xs:attribute name="sendDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="aadhs_CtResults_Data">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:sequence minOccurs="0">
+					<xs:element name="quality" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="Artery_Coverage" type="xs:integer" minOccurs="0"/>
+								<xs:element name="Phantom_Placement" type="xs:integer" minOccurs="0"/>
+								<xs:element name="Noise" type="xs:integer" minOccurs="0"/>
+								<xs:element name="Streak_Artifact" type="xs:integer" minOccurs="0"/>
+								<xs:element name="Stair_Step_Artifact" type="xs:integer" minOccurs="0"/>
+								<xs:element name="Other_Artifact" type="xs:integer" minOccurs="0"/>
+								<xs:element name="Overall_Rating" type="xs:integer" minOccurs="0"/>
+								<xs:element name="No_Surg" type="xs:string" minOccurs="0"/>
+								<xs:element name="H_CABG" type="xs:string" minOccurs="0"/>
+								<xs:element name="H_Pace_Maker" type="xs:string" minOccurs="0"/>
+								<xs:element name="H_Stent" type="xs:string" minOccurs="0"/>
+								<xs:element name="H_Valve" type="xs:string" minOccurs="0"/>
+								<xs:element name="H_Surgical_Other" type="xs:string" minOccurs="0"/>
+								<xs:element name="C_Surgical" type="xs:string" minOccurs="0"/>
+								<xs:element name="A_Surgical" type="xs:string" minOccurs="0"/>
+								<xs:element name="comment" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="pFat" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="pfat_series_no" type="xs:integer" minOccurs="0"/>
+								<xs:element name="pfat_slice_no" type="xs:integer" minOccurs="0"/>
+								<xs:element name="pfat_volume" type="xs:float" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="lFat" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="lfat_slice_no" type="xs:integer" minOccurs="0"/>
+								<xs:element name="lfat_roi_1" type="xs:float" minOccurs="0"/>
+								<xs:element name="lfat_roi_2" type="xs:float" minOccurs="0"/>
+								<xs:element name="lfat_roi_3" type="xs:float" minOccurs="0"/>
+								<xs:element name="lfat_std1" type="xs:float" minOccurs="0"/>
+								<xs:element name="lfat_std2" type="xs:float" minOccurs="0"/>
+								<xs:element name="lfat_std3" type="xs:float" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="hSize" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="hs_ven_width" type="xs:float" minOccurs="0"/>
+								<xs:element name="hs_ven_length" type="xs:float" minOccurs="0"/>
+								<xs:element name="hs_top_slice" type="xs:integer" minOccurs="0"/>
+								<xs:element name="hs_bottom_slice" type="xs:integer" minOccurs="0"/>
+								<xs:element name="hs_no_slices" type="xs:integer" minOccurs="0"/>
+								<xs:element name="hs_slices_div_2" type="xs:float" minOccurs="0"/>
+								<xs:element name="hs_max_slice" type="xs:integer" minOccurs="0"/>
+								<xs:element name="hs_max_shortaxis_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="hs_midven_slice" type="xs:integer" minOccurs="0"/>
+								<xs:element name="hs_midven_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="hs_apex_slice" type="xs:integer" minOccurs="0"/>
+								<xs:element name="hs_apex_area" type="xs:float" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="abdFat" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="abindex_slice_60" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abstart_slice_60" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abend_slice_60" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abtotal_volume_60" type="xs:float" minOccurs="0"/>
+								<xs:element name="abfat_volume_60" type="xs:float" minOccurs="0"/>
+								<xs:element name="abfat_vismus_vol_60" type="xs:float" minOccurs="0"/>
+								<xs:element name="abfat_vis_volume_60" type="xs:float" minOccurs="0"/>
+								<xs:element name="abindex_slice_10" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abstart_slice_10" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abend_slice_10" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abtotal_volume_10" type="xs:float" minOccurs="0"/>
+								<xs:element name="abfat_volume_10" type="xs:float" minOccurs="0"/>
+								<xs:element name="abfat_vismus_vol_10" type="xs:float" minOccurs="0"/>
+								<xs:element name="abfat_vis_volume_10" type="xs:float" minOccurs="0"/>
+								<xs:element name="abfat_comment" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="phantom" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="phant_INT_0mg_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="phant_INT_75mg_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="phant_INT_150mg_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="phant_INT_AAO_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="phant_INT_DAO_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="phant_INT_0mg_sd" type="xs:float" minOccurs="0"/>
+								<xs:element name="phant_INT_75mg_sd" type="xs:float" minOccurs="0"/>
+								<xs:element name="phant_INT_150mg_sd" type="xs:float" minOccurs="0"/>
+								<xs:element name="phant_INT_AAO_sd" type="xs:float" minOccurs="0"/>
+								<xs:element name="phant_INT_DAO_sd" type="xs:float" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="h1_calcium" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="h1_aj130_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_aj130_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_aj130_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_aj130_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_aj130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_aj130_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_aj90_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_aj90_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_aj90_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_aj90_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_aj90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_aj90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_linear90_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_linear90_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_linear90_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_linear90_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_linear90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_linear90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_volume90_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_volume90_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_volume90_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_volume90_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_volume90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_volume90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_mass90_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_mass90_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_mass90_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_mass90_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_mass90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_mass90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_linear130_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_linear130_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_linear130_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_linear130_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_linear130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_linear130_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_volume130_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_volume130_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_volume130_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_volume130_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_volume130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_volume130_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_mass130_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_mass130_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_mass130_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_mass130_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_mass130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h1_mass130_total" type="xs:integer" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="h2_calcium" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="h2_aj130_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_aj130_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_aj130_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_aj130_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_aj130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_aj130_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_aj90_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_aj90_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_aj90_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_aj90_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_aj90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_aj90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_linear90_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_linear90_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_linear90_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_linear90_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_linear90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_linear90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_volume90_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_volume90_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_volume90_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_volume90_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_volume90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_volume90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_mass90_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_mass90_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_mass90_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_mass90_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_mass90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_mass90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_linear130_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_linear130_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_linear130_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_linear130_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_linear130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_linear130_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_volume130_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_volume130_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_volume130_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_volume130_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_volume130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_volume130_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_mass130_lma" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_mass130_lad" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_mass130_lcx" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_mass130_rca" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_mass130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="h2_mass130_total" type="xs:integer" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="abd_calcium" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="abd_aj130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_aj130_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_aj130_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_aj130_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_aj130_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_aj90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_aj90_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_aj90_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_aj90_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_aj90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_linear90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_linear90_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_linear90_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_linear90_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_linear90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_volume90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_volume90_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_volume90_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_volume90_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_volume90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_mass90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_mass90_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_mass90_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_mass90_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_mass90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_linear130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_linear130_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_linear130_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_linear130_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_linear130_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_volume130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_volume130_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_volume130_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_volume130_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_volume130_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_mass130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_mass130_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_mass130_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_mass130_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="abd_mass130_total" type="xs:integer" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="carotid_l_calcium" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="carotid_l_aj130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_aj130_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_aj130_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_aj130_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_aj130_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_aj90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_aj90_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_aj90_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_aj90_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_aj90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_linear90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_linear90_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_linear90_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_linear90_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_linear90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_volume90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_volume90_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_volume90_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_volume90_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_volume90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_mass90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_mass90_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_mass90_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_mass90_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_mass90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_linear130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_linear130_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_linear130_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_linear130_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_linear130_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_volume130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_volume130_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_volume130_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_volume130_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_volume130_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_mass130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_mass130_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_mass130_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_mass130_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_l_mass130_total" type="xs:integer" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="carotid_r_calcium" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="carotid_r_aj130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_aj130_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_aj130_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_aj130_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_aj130_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_aj90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_aj90_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_aj90_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_aj90_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_aj90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_linear90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_linear90_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_linear90_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_linear90_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_linear90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_volume90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_volume90_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_volume90_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_volume90_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_volume90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_mass90_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_mass90_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_mass90_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_mass90_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_mass90_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_linear130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_linear130_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_linear130_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_linear130_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_linear130_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_volume130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_volume130_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_volume130_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_volume130_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_volume130_total" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_mass130_pda" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_mass130_a" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_mass130_b" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_mass130_c" type="xs:integer" minOccurs="0"/>
+								<xs:element name="carotid_r_mass130_total" type="xs:integer" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="patientid" type="xs:string" use="optional"/>
+				<xs:attribute name="patientname" type="xs:string" use="optional"/>
+				<xs:attribute name="patientweight" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+				<xs:attribute name="workStation" type="xs:string" use="optional"/>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="serialNumber" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="slicer3d_chest_Data">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:attribute name="patientid" type="xs:string" use="optional"/>
+				<xs:attribute name="patientname" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+				<xs:attribute name="modality" type="xs:string" use="optional"/>
+				<xs:attribute name="sliceThickness" type="xs:string" use="optional"/>
+				<xs:attribute name="studyID" type="xs:string" use="optional"/>
+				<xs:element name="seriesNumber" type="xs:integer" minOccurs="0"/>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="sopinstanceuid" type="xs:string" use="optional"/>
+				<xs:sequence minOccurs="0">
+					<xs:element name="measurement" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="5_lm_1_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_1_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_1_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_1_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_1_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_1_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_1_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_1_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_1_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_1_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_2_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_2_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_2_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_2_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_2_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_2_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_2_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_2_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_2_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_2_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_3_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_3_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_3_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_3_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_3_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_3_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_3_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_3_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_3_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_3_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_4_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_4_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_4_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_4_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_4_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_4_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_4_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_4_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_4_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_4_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_1_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_1_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_1_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_1_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_1_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_1_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_1_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_1_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_1_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_1_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_2_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_2_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_2_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_2_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_2_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_2_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_2_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_2_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_2_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_2_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_3_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_3_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_3_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_3_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_3_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_3_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_3_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_3_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_3_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_3_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_4_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_4_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_4_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_4_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_4_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_4_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_4_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_4_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_4_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_4_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_1_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_1_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_1_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_1_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_1_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_1_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_1_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_1_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_1_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_1_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_2_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_2_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_2_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_2_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_2_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_2_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_2_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_2_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_2_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_2_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_3_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_3_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_3_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_3_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_3_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_3_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_3_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_3_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_3_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_3_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_4_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_4_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_4_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_4_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_4_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_4_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_4_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_4_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_4_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_4_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_1_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_1_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_1_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_1_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_1_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_1_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_1_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_1_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_1_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_1_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_2_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_2_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_2_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_2_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_2_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_2_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_2_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_2_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_2_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_2_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_3_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_3_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_3_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_3_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_3_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_3_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_3_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_3_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_3_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_3_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_4_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_4_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_4_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_4_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_4_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_4_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_4_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_4_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_4_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_4_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_1_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_1_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_1_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_1_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_1_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_1_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_1_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_1_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_1_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_1_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_2_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_2_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_2_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_2_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_2_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_2_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_2_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_2_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_2_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_2_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_3_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_3_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_3_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_3_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_3_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_3_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_3_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_3_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_3_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_3_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_4_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_4_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_4_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_4_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_4_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_4_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_4_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_4_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_4_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_4_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_5_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_5_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_5_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_5_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_5_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_5_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_5_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_5_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_5_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_5_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_6_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_6_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_6_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_6_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_6_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_6_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_6_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_6_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_6_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_6_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_1_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_1_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_1_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_1_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_1_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_1_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_1_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_1_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_1_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_1_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_2_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_2_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_2_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_2_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_2_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_2_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_2_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_2_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_2_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_2_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_3_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_3_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_3_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_3_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_3_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_3_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_3_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_3_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_3_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_3_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_4_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_4_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_4_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_4_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_4_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_4_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_4_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_4_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_4_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_4_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_5_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_5_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_5_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_5_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_5_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_5_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_5_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_5_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_5_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_5_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_6_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_6_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_6_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_6_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_6_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_6_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_6_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_6_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_6_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_6_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_distance" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_count" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_min" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_max" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_min_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_max_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_mean_dia" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_distance" type="xs:float" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="branchpoint" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="bp_lmlad_segment_5" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_lmlad_lcx_bp" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_d1_lmlad_lcx_bp" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_lcx_segment_11" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_rca_segment_1" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_rca_turn_point" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_aorta_segment_1" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_aorta_segment_2" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_aorta_segment_3" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_aorta_segment_4" type="xs:float" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>	
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="slicer3d_pvfat_Data">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:attribute name="patientid" type="xs:string" use="optional"/>
+				<xs:attribute name="patientname" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+				<xs:attribute name="modality" type="xs:string" use="optional"/>
+				<xs:attribute name="sliceThickness" type="xs:string" use="optional"/>
+				<xs:attribute name="studyID" type="xs:string" use="optional"/>
+				<xs:element name="seriesNumber" type="xs:integer" minOccurs="0"/>
+				<xs:element name="perivessel_distance" type="xs:float" minOccurs="0"/>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="sopinstanceuid" type="xs:string" use="optional"/>
+				<xs:sequence minOccurs="0">
+					<xs:element name="measurement" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="5_lm_1_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_1_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_1_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_1_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_1_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_1_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_2_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_2_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_2_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_2_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_2_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_2_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_3_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_3_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_3_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_3_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_3_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_3_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_4_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="5_lm_4_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_4_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_4_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_4_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="5_lm_4_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_1_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_1_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_1_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_1_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_1_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_1_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_2_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_2_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_2_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_2_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_2_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_2_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_3_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_3_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_3_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_3_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_3_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_3_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_4_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="6_lad_4_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_4_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_4_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_4_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="6_lad_4_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_1_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_1_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_1_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_1_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_1_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_1_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_2_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_2_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_2_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_2_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_2_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_2_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_3_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_3_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_3_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_3_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_3_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_3_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_4_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="7_lad_4_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_4_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_4_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_4_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="7_lad_4_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_1_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_1_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_1_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_1_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_1_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_1_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_2_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_2_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_2_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_2_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_2_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_2_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_3_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_3_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_3_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_3_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_3_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_3_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_4_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="11_lcx_4_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_4_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_4_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_4_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="11_lcx_4_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_1_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_1_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_1_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_1_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_1_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_1_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_2_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_2_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_2_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_2_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_2_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_2_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_3_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_3_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_3_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_3_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_3_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_3_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_4_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_4_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_4_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_4_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_4_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_4_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_5_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_5_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_5_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_5_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_5_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_5_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_6_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="1_rca_6_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_6_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_6_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_6_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="1_rca_6_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_1_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_1_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_1_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_1_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_1_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_1_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_2_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_2_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_2_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_2_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_2_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_2_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_3_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_3_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_3_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_3_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_3_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_3_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_4_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_4_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_4_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_4_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_4_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_4_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_5_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_5_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_5_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_5_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_5_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_5_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_6_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="2_rca_6_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_6_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_6_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_6_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="2_rca_6_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_1_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_2_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_1_mes_3_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_1_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_2_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_2_mes_3_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_1_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_2_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_3_mes_3_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_1_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_2_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_3_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_4_fat_std_dev" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_fat_pixel_number" type="xs:integer" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_fat_area" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_fat_min" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_fat_max" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_fat_mean" type="xs:float" minOccurs="0"/>
+								<xs:element name="aorta_seg_4_mes_5_fat_std_dev" type="xs:float" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="branchpoint" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="bp_lmlad_segment_5" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_lmlad_lcx_bp" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_d1_lmlad_lcx_bp" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_lcx_segment_11" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_rca_segment_1" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_rca_turn_point" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_aorta_segment_1" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_aorta_segment_2" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_aorta_segment_3" type="xs:float" minOccurs="0"/>
+								<xs:element name="bp_aorta_segment_4" type="xs:float" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>	
+					</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="clinicalReport_diva_Data">
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:sequence>
+					<xs:element name="scouts" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Negative"/>
+											<xs:enumeration value="Finding"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="abdomen" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Negative"/>
+											<xs:enumeration value="Finding"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="conclusion" minOccurs="0">
+						<xs:complexType>
+							<xs:all>
+								<xs:element name="negative" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Negative study</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="negativeIncidental" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Negative study. An incidental finding or anatomic variant that may be of future value to the participant is identified</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="abnormality" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Abnormality. An abnormality or unexpected finding that is not considered to be an urgent and immediate life-threatening finding but needs attention and follow-up action as soon as possible</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="infectious" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Reportable infectious abnormality. Findings are potentially suggestive of a reportable infectious disease and require follow-up</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="malignancy" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Findings suspicious for malignancy. Unexpected abnormality that is highly suggestive of malignancy</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="critical" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Critical abnormality. A finding that may be considered life threatening or could result in severe morbidity and require urgent or emergent clinical attention has been found</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:all>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="report" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="jhsmr:longString">
+									<xs:attribute name="reporterName" type="xs:string" use="optional"/>
+									<xs:attribute name="reportDate" type="xs:date" use="optional"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="signerName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="signingDate" type="xs:date" use="optional"/>
+				<xs:attribute name="dcmPatientName" type="xs:string" use="optional"/>
+				<xs:attribute name="dcmPatientId" type="xs:string" use="optional"/>
+				<xs:attribute name="scanDate" type="xs:date" use="optional"/>
+				<xs:attribute name="senderName" type="xs:string" use="optional"/>
+				<xs:attribute name="sendDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="sliceomatic_Data">
+		<xs:complexContent>
+			<xs:extension base="xnat:mrAssessorData">
+				<xs:sequence>
+					<xs:element name="tagData" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="tag" minOccurs="0" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:attribute name="tagName" type="xs:string"/>
+										<xs:attribute name="tagValue" type="xs:float"/>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="serialNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="osirixPericardialFat_Data">
+		<!--single layer variable type-->
+		<xs:complexContent>
+			<xs:extension base="xnat:ctAssessorData">
+				<xs:attribute name="analyst" type="xs:string" use="optional"/>
+				<xs:attribute name="sliceThickness" type="xs:float" use="optional"/>
+<!--				<xs:attribute name="date" type="xs:date" use="optional"/>-->
+				<xs:attribute name="patientID" type="xs:string" use="optional"/>
+				<xs:attribute name="studyID" type="xs:string" use="optional"/>
+				<xs:attribute name="seriesNumber" type="xs:integer" use="optional"/>
+				<xs:attribute name="sopUID" type="xs:string" use="optional"/>
+				<xs:attribute name="modality" type="xs:string" use="optional"/>
+				<xs:attribute name="totalMeasured" type="xs:float" use="optional"/>
+				<xs:attribute name="startSlice" type="xs:integer" use="optional"/>
+				<xs:attribute name="endSlice" type="xs:integer" use="optional"/>
+				<xs:attribute name="fatThresholdMin" type="xs:integer" use="optional"/>
+				<xs:attribute name="fatThresholdMax" type="xs:integer" use="optional"/>
+				<xs:attribute name="muscleThresholdMin" type="xs:integer" use="optional"/>
+				<xs:attribute name="muscleThresholdMax" type="xs:integer" use="optional"/>
+				<xs:attribute name="voiName" type="xs:string" use="optional"/>
+				<xs:attribute name="totalVol" type="xs:float" use="optional"/>
+				<xs:attribute name="totalMean" type="xs:float" use="optional"/>
+				<xs:attribute name="totalSTD" type="xs:float" use="optional"/>
+				<xs:attribute name="totalMin" type="xs:float" use="optional"/>
+				<xs:attribute name="totalMax" type="xs:float" use="optional"/>
+				<xs:attribute name="fatVol" type="xs:float" use="optional"/>
+				<xs:attribute name="fatMean" type="xs:float" use="optional"/>
+				<xs:attribute name="fatSTD" type="xs:float" use="optional"/>
+				<xs:attribute name="fatMin" type="xs:float" use="optional"/>
+				<xs:attribute name="fatMax" type="xs:float" use="optional"/>
+				<xs:attribute name="musVol" type="xs:float" use="optional"/>
+				<xs:attribute name="musMean" type="xs:float" use="optional"/>
+				<xs:attribute name="musSTD" type="xs:float" use="optional"/>
+				<xs:attribute name="musMin" type="xs:float" use="optional"/>
+				<xs:attribute name="musMax" type="xs:float" use="optional"/>
+				<xs:attribute name="voiColor" type="xs:string" use="optional"/>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="serialNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+				<xs:attribute name="QA_analyst" type="xs:string" use="optional"/>
+				<xs:attribute name="QA_analysisDate" type="xs:date" use="optional"/>
+				<xs:attribute name="QA_patientID" type="xs:string" use="optional"/>
+				<xs:attribute name="QA_studyID" type="xs:string" use="optional"/>
+				<xs:attribute name="QA_seriesNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="QA_SOP" type="xs:string" use="optional"/>
+				<xs:attribute name="QA_studyDate" type="xs:date" use="optional"/>
+				<xs:attribute name="QA_modality" type="xs:string" use="optional"/>
+				<xs:attribute name="QA_version" type="xs:string" use="optional"/>
+				<xs:attribute name="QA_overallQuality" type="xs:integer" use="optional"/>
+				<xs:attribute name="QA_coverage" type="xs:integer" use="optional"/>
+				<xs:attribute name="QA_surgicalArtifact" type="xs:integer" use="optional"/>
+				<xs:attribute name="QA_needTechnicalReview" type="xs:integer" use="optional"/>
+				<xs:attribute name="QA_unreadable" type="xs:integer" use="optional"/>
+				<xs:attribute name="QA_comments" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="cimData">
+		<xs:complexContent>
+			<xs:extension base="xnat:mrAssessorData">
+				<xs:sequence>
+					<xs:element name="patientID" type="xs:string" minOccurs="0"/>
+				    <xs:element name="patientName" type="xs:string" minOccurs="0"/>
+					<xs:element name="contourFormat" type="xs:string" minOccurs="0"/>
+					<xs:element name="contourInfo" type="xs:string" minOccurs="0"/>
+					<xs:element name="edv" type="xs:float" minOccurs="0"/>
+					<xs:element name="esv" type="xs:float" minOccurs="0"/>
+					<xs:element name="sv" type="xs:float" minOccurs="0"/>
+					<xs:element name="esMSec" type="xs:float" minOccurs="0"/>
+					<xs:element name="esPhase" type="xs:integer" minOccurs="0"/>
+					<xs:element name="ef" type="xs:float" minOccurs="0"/>
+					<xs:element name="massInGrams" type="xs:float" minOccurs="0"/>
+					<xs:element name="massInML" type="xs:float" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="serialNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 (http://www.altova.com) by Yaorong Ge (Wake Forest University) -->
+<xs:schema xmlns:wfucvrg="http://imagelab.wfubmc.edu/wfucvrg" xmlns:xdat="http://nrg.wustl.edu/xdat" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xnat="http://nrg.wustl.edu/xnat" targetNamespace="http://imagelab.wfubmc.edu/wfucvrg" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../xnat/xnat.xsd"/>
+	<xs:element name="ctAnalysis" type="wfucvrg:ctAnalysisData"/>
+	<xs:element name="mrAnalysis" type="wfucvrg:mrAnalysisData"/>
+	<xs:element name="usAnalysis" type="wfucvrg:usAnalysisData"/>
+	<xs:complexType name="ctAnalysisData">
+		<xs:complexContent>
+			<xs:extension base="xnat:imageAssessorData">
+				<xs:sequence>
+					<xs:element name="patientID" type="xs:string" minOccurs="0"/>
+					<xs:element name="pericardialFat" type="xs:float" minOccurs="0"/>
+					<xs:element name="abdominalFatVisceral" type="xs:float" minOccurs="0"/>
+					<xs:element name="abdominalFatSubcutaneous" type="xs:float" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="mrAnalysisData">
+		<xs:complexContent>
+			<xs:extension base="xnat:mrAssessorData">
+				<xs:sequence>
+					<xs:element name="patientID" type="xs:string" minOccurs="0"/>
+					<xs:element name="endoLength" type="xs:float" minOccurs="0"/>
+					<xs:element name="epiLength" type="xs:float" minOccurs="0"/>
+					<xs:element name="edv" type="xs:float" minOccurs="0"/>
+					<xs:element name="esv" type="xs:float" minOccurs="0"/>
+					<xs:element name="sv" type="xs:float" minOccurs="0"/>
+					<xs:element name="ef" type="xs:float" minOccurs="0"/>
+					<xs:element name="mass" type="xs:float" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="usAnalysisData">
+		<xs:complexContent>
+			<xs:extension base="xnat:imageAssessorData">
+				<xs:sequence>
+					<xs:element name="patientID" type="xs:string" minOccurs="0"/>
+					<xs:element name="echoSBP" type="xs:integer" minOccurs="0"/>
+					<xs:element name="echoDBP" type="xs:integer" minOccurs="0"/>
+					<xs:element name="lvot" type="xs:float" minOccurs="0"/>
+					<xs:element name="tr" type="xs:integer" minOccurs="0"/>
+					<xs:element name="ivs" type="xs:float" minOccurs="0"/>
+					<xs:element name="pw" type="xs:float" minOccurs="0"/>
+					<xs:element name="lved" type="xs:float" minOccurs="0"/>
+					<xs:element name="lves" type="xs:float" minOccurs="0"/>
+					<xs:element name="la" type="xs:float" minOccurs="0"/>
+					<xs:element name="diastolicArea" type="xs:float" minOccurs="0"/>
+					<xs:element name="diastolicVolume" type="xs:float" minOccurs="0"/>
+					<xs:element name="diastolicLongAxis" type="xs:float" minOccurs="0"/>
+					<xs:element name="systolicArea" type="xs:float" minOccurs="0"/>
+					<xs:element name="systolicVolume" type="xs:float" minOccurs="0"/>
+					<xs:element name="systolicLongAxis" type="xs:float" minOccurs="0"/>
+					<xs:element name="leftAtriumArea" type="xs:float" minOccurs="0"/>
+					<xs:element name="leftAtriumVolume" type="xs:float" minOccurs="0"/>
+					<xs:element name="leftAtriumLongAxis" type="xs:float" minOccurs="0"/>
+					<xs:element name="leftAtriumLateralAxis" type="xs:float" minOccurs="0"/>
+					<xs:element name="ePeak" type="xs:float" minOccurs="0"/>
+					<xs:element name="aPeak" type="xs:float" minOccurs="0"/>
+					<xs:element name="eaRatio" type="xs:float" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
+

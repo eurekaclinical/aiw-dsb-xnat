@@ -1,0 +1,1579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 (http://www.altova.com) by Yaorong Ge (Wake Forest University) -->
+<xs:schema xmlns:jhsmr="http://imagelab.wfubmc.edu/jhsmr" xmlns:xdat="http://nrg.wustl.edu/xdat" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xnat="http://nrg.wustl.edu/xnat" targetNamespace="http://imagelab.wfubmc.edu/jhsmr" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../xnat/xnat.xsd"/>
+	<xs:element name="MrvAssessment" type="jhsmr:mrvAssessmentData"/>
+	<xs:element name="HarpAssessment" type="jhsmr:harpAssessmentData"/>
+	<xs:element name="MimpAssessment" type="jhsmr:mimpAssessmentData"/>
+	<xs:element name="ClinicalAssessment" type="jhsmr:clinicalReportData"/>
+	<xs:element name="Qmass" type="jhsmr:qmassData"/>
+	<xs:simpleType name="longString">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4096"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="mrvAssessmentData">
+		<xs:complexContent>
+			<xs:extension base="xnat:mrAssessorData">
+				<xs:sequence minOccurs="0">
+					<xs:element name="series" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="logicalName" type="xs:string" minOccurs="0"/>
+								<xs:element name="description" type="xs:string" minOccurs="0"/>
+								<xs:element name="heartRate" type="xs:string" minOccurs="0"/>
+								<xs:element name="temporalResolution" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="userDefinedVariables" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="edPhase" type="xs:integer" minOccurs="0"/>
+								<xs:element name="esPhase" type="xs:integer" minOccurs="0"/>
+								<xs:element name="wallMotionModel" type="xs:string" minOccurs="0"/>
+								<xs:element name="volumeCorrectionMethod" type="xs:string" minOccurs="0"/>
+								<xs:element name="myocardialDensity" type="xs:float" minOccurs="0"/>
+								<xs:element name="infarctRegionBorderMargin" type="xs:float" minOccurs="0"/>
+								<xs:element name="epiEndoDivisionRatio" type="xs:float" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="totalVentricleResults" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="ejectionFraction" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Ejection Fraction</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:float">
+											<xs:minInclusive value="0.0"/>
+											<xs:maxInclusive value="1000.0"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="edVolume" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ED Volume (ml)</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:float">
+											<xs:minInclusive value="0.0"/>
+											<xs:maxInclusive value="1000.0"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="esVolume" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ES Volume</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:float">
+											<xs:minInclusive value="0.0"/>
+											<xs:maxInclusive value="1000.0"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="strokeResults" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="indexMethod" type="xs:string" minOccurs="0"/>
+								<xs:element name="edVolumeIndex" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ED Volume Index [ml/m2]</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:float">
+											<xs:minInclusive value="0.0"/>
+											<xs:maxInclusive value="1000.0"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="esVolumeIndex" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ES Volume Index [ml/m2]</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:float">
+											<xs:minInclusive value="0.0"/>
+											<xs:maxInclusive value="1000.0"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="strokeVolume" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Stroke Volume (ml)</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:float">
+											<xs:minInclusive value="0.0"/>
+											<xs:maxInclusive value="1000.0"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="strokeVolumeIndex" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Stroke Volume Index (ml/m2)</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:float">
+											<xs:minInclusive value="0.0"/>
+											<xs:maxInclusive value="1000.0"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="cardiacOutput" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Cardiac Output [1/min]</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:float">
+											<xs:minInclusive value="0.0"/>
+											<xs:maxInclusive value="1000.0"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="cardiacIndex" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Cardiac Index [1/min/m2]</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:float">
+											<xs:minInclusive value="0.0"/>
+											<xs:maxInclusive value="1000.0"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="edMyocardMass" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ED Myocard Mass [g]</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:float">
+											<xs:minInclusive value="0.0"/>
+											<xs:maxInclusive value="1000.0"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="esMyocardMass" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ES Myocard Mass [g]</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:float">
+											<xs:minInclusive value="0.0"/>
+											<xs:maxInclusive value="1000.0"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="bsa" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>BSA [m2]</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:float">
+											<xs:minInclusive value="0.0"/>
+											<xs:maxInclusive value="1000.0"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="perPhaseSA" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="phaseNumber" type="xs:string" minOccurs="0"/>
+								<xs:element name="timeIndex" type="xs:string" minOccurs="0"/>
+								<xs:element name="epicardVolume" type="xs:string" minOccurs="0"/>
+								<xs:element name="endocardVolume" type="xs:string" minOccurs="0"/>
+								<xs:element name="bloodVolume" type="xs:string" minOccurs="0"/>
+								<xs:element name="papillaryVolume" type="xs:string" minOccurs="0"/>
+								<xs:element name="myocardVolume" type="xs:string" minOccurs="0"/>
+								<xs:element name="fillingRate" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Filling Rate [%EDV/s]</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="timeActivity" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Time Activity [%EDV]</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="perPhase2CH" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="phaseNumber" type="xs:string" minOccurs="0"/>
+								<xs:element name="timeIndex" type="xs:string" minOccurs="0"/>
+								<xs:element name="epicardVolume" type="xs:string" minOccurs="0"/>
+								<xs:element name="endocardVolume" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="perPhase4CH" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="phaseNumber" type="xs:string" minOccurs="0"/>
+								<xs:element name="timeIndex" type="xs:string" minOccurs="0"/>
+								<xs:element name="epicardVolume" type="xs:string" minOccurs="0"/>
+								<xs:element name="endocardVolume" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="sliceResultsED" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="sliceNumber" type="xs:string" minOccurs="0"/>
+								<xs:element name="epicardArea" type="xs:string" minOccurs="0"/>
+								<xs:element name="endocardArea" type="xs:string" minOccurs="0"/>
+								<xs:element name="papillaryArea" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="sliceResultsES" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="sliceNumber" type="xs:string" minOccurs="0"/>
+								<xs:element name="epicardArea" type="xs:string" minOccurs="0"/>
+								<xs:element name="endocardArea" type="xs:string" minOccurs="0"/>
+								<xs:element name="papillaryArea" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="ahabasedResults" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="segmentName" type="jhsmr:longString" minOccurs="0"/>
+								<xs:element name="wallThicknessED" type="xs:string" minOccurs="0"/>
+								<xs:element name="wallThicknessES" type="xs:string" minOccurs="0"/>
+								<xs:element name="wallMotionED2ES" type="xs:string" minOccurs="0"/>
+								<xs:element name="wallThickeningED2ES" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="serialNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="spreadSheetLayoutVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="required"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+				<xs:attribute name="title" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="harpAssessmentData">
+		<xs:complexContent>
+			<xs:extension base="xnat:mrAssessorData">
+				<xs:sequence>
+					<xs:element name="ejectionFraction" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="label" type="xs:string"/>
+								<xs:element name="value" type="xs:string" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="resolution" type="xs:string"/>
+							<xs:attribute name="layer" type="xs:string"/>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="eulStrain" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="label" type="xs:string"/>
+								<xs:element name="value" type="xs:string" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="resolution" type="xs:string"/>
+							<xs:attribute name="layer" type="xs:string"/>
+							<xs:attribute name="type" type="xs:string"/>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="leftVentricleMass" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="label" type="xs:string"/>
+								<xs:element name="value" type="xs:string" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="resolution" type="xs:string"/>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="rotation" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="label" type="xs:string"/>
+								<xs:element name="value" type="xs:string" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="resolution" type="xs:string"/>
+							<xs:attribute name="layer" type="xs:string"/>
+							<xs:attribute name="type" type="xs:string"/>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="wallThickness" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="label" type="xs:string"/>
+								<xs:element name="value" type="xs:string" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="resolution" type="xs:string"/>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="wallThickening" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="label" type="xs:string"/>
+								<xs:element name="value" type="xs:string" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attribute name="resolution" type="xs:string"/>
+							<xs:attribute name="layer" type="xs:string"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="serialNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="mimpAssessmentData">
+		<xs:complexContent>
+			<xs:extension base="xnat:mrAssessorData">
+				<xs:sequence>
+					<xs:element name="pulseWaveVelocity" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="series" type="xs:string"/>
+								<xs:element name="territory" type="xs:string"/>
+								<xs:element name="stressLevel" type="xs:string" minOccurs="0"/>
+								<xs:element name="dx" type="xs:float">
+									<xs:annotation>
+										<xs:documentation>(mm)</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="dt" type="xs:float">
+									<xs:annotation>
+										<xs:documentation>(ms)</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="pwv" type="xs:float">
+									<xs:annotation>
+										<xs:documentation>Pulse Wave Velocity (m/s)</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="status" type="xs:string" minOccurs="0"/>
+								<xs:element name="shift" type="xs:float" minOccurs="0"/>
+								<xs:element name="threshold" type="xs:float" minOccurs="0"/>	
+								<xs:element name="distension" type="xs:float" minOccurs="0"/>
+								<xs:element name="distens1" type="xs:float" minOccurs="0"/>
+								<xs:element name="distens2" type="xs:float" minOccurs="0"/>
+								<xs:element name="maxarea1" type="xs:float" minOccurs="0"/>
+								<xs:element name="minarea1" type="xs:float" minOccurs="0"/>
+								<xs:element name="maxarea2" type="xs:float" minOccurs="0"/>
+								<xs:element name="minarea2" type="xs:float" minOccurs="0"/>
+								<xs:element name="flow1" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Flow (ml/s)</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="flow2" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Flow (ml/s)</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="sbp" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Systolic blood pressure</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="dbp" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Diastolic blood pressure</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="bpm" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Beats per minute (heart rate)</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="wallThickness" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="series" type="xs:string"/>
+								<xs:element name="territory" type="xs:string"/>
+								<xs:element name="stressLevel" type="xs:string" minOccurs="0"/>
+								<xs:element name="bpm" type="xs:float" minOccurs="0"/>
+								<xs:element name="mean" type="xs:float"/>
+								<xs:element name="max" type="xs:float"/>
+								<xs:element name="min" type="xs:float"/>
+								<xs:element name="fullRange" type="xs:string"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="serialNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+				<xs:attribute name="pwvAnalystName" type="xs:string" use="optional"/>
+				<xs:attribute name="pwvAnalysisDate" type="xs:date" use="optional"/>
+				<xs:attribute name="wtAnalystName" type="xs:string" use="optional"/>
+				<xs:attribute name="wtAnalysisDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="clinicalAssessmentData">
+		<xs:complexContent>
+			<xs:extension base="xnat:subjectAssessorData">
+				<xs:sequence>
+					<xs:element name="Diagnosis" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>DIAG1 - 5; DX1-5</xs:documentation>
+							<xs:appinfo>
+								<xdat:field uniqueComposite="UNIQUE_NAME_VALUE">
+									<xdat:relation uniqueComposite="UNIQUE_NAME_VALUE"/>
+								</xdat:field>
+							</xs:appinfo>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="xs:string">
+									<xs:attribute name="type" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="primary"/>
+												<xs:enumeration value="secondary"/>
+												<xs:enumeration value="tertiary"/>
+												<xs:enumeration value="additional"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="number" type="xs:integer" use="optional"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="BloodPressure" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>SYSBP and DIASBP</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:attribute name="HighBP_CS_Bool" type="xs:boolean" use="optional"/>
+							<xs:attribute name="systolic" type="xs:integer" use="optional"/>
+							<xs:attribute name="diastolic" type="xs:integer" use="optional"/>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Neuro" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="SBT" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>SBT; Katzman Short Blessed Test</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:integer">
+											<xs:minInclusive value="0"/>
+											<xs:maxInclusive value="30"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="MMSE" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>MMSE; Mini Mental State Exam</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:integer">
+											<xs:minInclusive value="0"/>
+											<xs:maxInclusive value="30"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="Bdsc" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>BDSC; Blessed Dementia Scale, Cognitive Portion</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:float">
+											<xs:minInclusive value="0"/>
+											<xs:maxInclusive value="10"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="CDR" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Clinical Dementia Rating</xs:documentation>
+									</xs:annotation>
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="memory" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>INT110; CDR: memory</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:float">
+														<xs:minInclusive value="0"/>
+														<xs:maxInclusive value="3"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="orientation" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>INT111; CDR: orientation</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:float">
+														<xs:minInclusive value="0"/>
+														<xs:maxInclusive value="3"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="judgment_problem_solving" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>INT112; CDR: judgment and problem solving</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:float">
+														<xs:minInclusive value="0"/>
+														<xs:maxInclusive value="3"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="community_affairs" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>INT113; CDR: community affairs</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:float">
+														<xs:minInclusive value="0"/>
+														<xs:maxInclusive value="3"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="home_hobbies" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>INT114; CDR: home and hobbies</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:float">
+														<xs:minInclusive value="0"/>
+														<xs:maxInclusive value="3"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="personal_care" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>INT115; CDR: personal care</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:float">
+														<xs:minInclusive value="0"/>
+														<xs:maxInclusive value="3"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+										</xs:sequence>
+										<xs:attribute name="sumbox" use="optional">
+											<xs:annotation>
+												<xs:documentation>SUMBOX; Summary score of boxes in CDR</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:float">
+													<xs:minInclusive value="0"/>
+													<xs:maxInclusive value="18"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:attribute>
+										<xs:attribute name="rating" type="xs:float" use="optional"/>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="ThinkingProblem_S_Bool" type="xs:boolean" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>INT501; thinking according to S</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="ThinkingProblem_CS_Bool" type="xs:boolean" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>INT324; thinking according to CS</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="ConsMemoryProblem_Bool" type="xs:boolean" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>INT415; Consistent memory problems</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="StrokeBool" type="xs:boolean" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>INT015; strokes or tias</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="Sx_Stroke_Bool" type="xs:boolean" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>SX_STROKE; stroke symptoms</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="Sx_Tia_Bool" type="xs:boolean" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>SX_TIA; tia symptoms</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Movement" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="Spasticity_Bool" type="xs:boolean" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>INT121; spasticity</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="Rigid" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>RIGID; Cogwhell rigidity</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:integer">
+											<xs:minInclusive value="0"/>
+											<xs:maxInclusive value="10"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="Bradyk_Bool" type="xs:boolean" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>BRADYK; bradykinesia</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="Gait" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>GAIT; extrapyramidal disorder</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:integer">
+											<xs:minInclusive value="0"/>
+											<xs:maxInclusive value="5"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="AbnormalGait_Bool" type="xs:boolean" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>INT572; abnormal/normal concerning gait</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Medication" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>INT601-604; INT615-INT617; INT624-626; INT632-633</xs:documentation>
+							<xs:appinfo>
+								<xdat:field>
+									<xdat:relation uniqueComposite="UNIQUE_NAME_VALUE"/>
+								</xdat:field>
+							</xs:appinfo>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:attribute name="name" type="xs:string" use="optional">
+								<xs:annotation>
+									<xs:appinfo>
+										<xdat:field uniqueComposite="UNIQUE_NAME_VALUE"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="type" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="cardiovascular"/>
+										<xs:enumeration value="bp-heart"/>
+										<xs:enumeration value="other"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+							<xs:attribute name="dose" type="xs:string" use="optional"/>
+							<xs:attribute name="history" type="xs:string" use="optional"/>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Weight" type="xs:integer" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>WEIGHT; Body Weight (lbs.)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Diabetes_Bool" type="xs:boolean" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>DIAB; Diabetes</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="HeartProblems_Bool" type="xs:boolean" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>HEART; heart problems</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="TobaccoUse_Bool" type="xs:boolean" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>TOBAC; tobacco use</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="clinicalReportData">
+		<xs:complexContent>
+			<xs:extension base="xnat:mrAssessorData">
+				<xs:sequence>
+					<xs:element name="lvWallMotion" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Within Normal Limits"/>
+											<xs:enumeration value="Abnormal"/>
+											<xs:enumeration value="Poor Image Quality"/>
+											<xs:enumeration value="Other"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="lvEjectionFraction" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:annotation>
+										<xs:documentation>Within Normal Limits (&gt;50%) is retired as of 11/20/08. 3/31/12 Added items without less than ang gt chars</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Within Normal Limits (&gt;50%)"/>
+											<xs:enumeration value="Within Normal Limits (&gt;=50%)"/>
+											<xs:enumeration value="Within Normal Limits (gt=50)"/>
+											<xs:enumeration value="Mildly Impaired (40-49%)"/>
+											<xs:enumeration value="Significant Abnormality (&lt;40% or hyperdynamic)"/>
+											<xs:enumeration value="Significant Abnormality (lt40 or hyperdynamic)"/>
+											<xs:enumeration value="Poor Image Quality"/>
+											<xs:enumeration value="Other"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="lvHypertrophy" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Within Normal Limits"/>
+											<xs:enumeration value="Mild Hypertrophy"/>
+											<xs:enumeration value="Significant Abnormality"/>
+											<xs:enumeration value="Poor Image Quality"/>
+											<xs:enumeration value="Other"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="aorta" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Size Within Normal Limits"/>
+											<xs:enumeration value="Mild Enlargement"/>
+											<xs:enumeration value="Significant Abnormality"/>
+											<xs:enumeration value="Poor Image Quality"/>
+											<xs:enumeration value="Other"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="other" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification" minOccurs="0">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Within Normal Limits"/>
+											<xs:enumeration value="Borderline"/>
+											<xs:enumeration value="Significant Abnormality"/>
+											<xs:enumeration value="Poor Image Quality"/>
+											<xs:enumeration value="Other"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="contrast" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification" minOccurs="0">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">								
+											<xs:enumeration value="Not Completed"/>	
+											<xs:enumeration value="Completed"/>										
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>					
+					<xs:element name="contrastQuality" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification" minOccurs="0">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="1 - Not interpretable"/>
+											<xs:enumeration value="2 - Poor"/>
+											<xs:enumeration value="3 - Average"/>
+											<xs:enumeration value="4 - Good"/>
+											<xs:enumeration value="5 - Excellent"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>					
+					<xs:element name="contrastReason1" minOccurs="0">
+						<xs:complexType>
+							<xs:all>
+								<xs:element name="artifact" type="xs:string" minOccurs="0"/>
+								<xs:element name="missingImages" type="xs:string" minOccurs="0"/>
+								<xs:element name="other" type="xs:string" minOccurs="0"/>
+							</xs:all>
+						</xs:complexType>
+					</xs:element>					
+					<xs:element name="contrastFinding" minOccurs="0">
+						<xs:complexType>
+							<xs:all>
+								<xs:element name="negative" type="xs:string" minOccurs="0"/>
+								<xs:element name="subendocardial" type="xs:string" minOccurs="0"/>
+								<xs:element name="myocardial" type="xs:string" minOccurs="0"/>
+								<xs:element name="midwalEnhancement" type="xs:string" minOccurs="0"/>
+								<xs:element name="other" type="xs:string" minOccurs="0"/>
+								<xs:element name="comments" type="jhsmr:longString" minOccurs="0"/>
+							</xs:all>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="conclusion" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="Potentially Significant Findings on Research Cardiovascular MRI"/>
+											<xs:enumeration value="Other Findings of Uncertain Clinical Relevance on Research Cardiovascular MRI"/>
+											<xs:enumeration value="Negative Research Cardiovascular MRI"/>
+											<xs:enumeration value="Poor Image Quality"/>
+											<xs:enumeration value="Other"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="report" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="jhsmr:longString">
+									<xs:attribute name="reporterName" type="xs:string" use="optional"/>
+									<xs:attribute name="reportDate" type="xs:date" use="optional"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					
+					
+					
+					
+					<xs:element name="tendon_trabeculation" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification" minOccurs="0">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">								
+											<xs:enumeration value="yes"/>	
+											<xs:enumeration value="no"/>										
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>		
+					<xs:element name="apical_trabeculation" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification" minOccurs="0">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">								
+											<xs:enumeration value="yes"/>	
+											<xs:enumeration value="no"/>										
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>		
+					
+					
+					
+					
+					<xs:element name="papillary_muscle" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="classification">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="0"/>
+											<xs:enumeration value="1P"/>
+											<xs:enumeration value="1A"/>
+											<xs:enumeration value="2"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comments" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="signerName" type="xs:string" use="optional"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="signingDate" type="xs:date" use="optional"/>
+				<xs:attribute name="dcmPatientName" type="xs:string" use="optional"/>
+				<xs:attribute name="dcmPatientId" type="xs:string" use="optional"/>
+				<xs:attribute name="scanDate" type="xs:date" use="optional"/>
+				<xs:attribute name="senderName" type="xs:string" use="optional"/>
+				<xs:attribute name="sendDate" type="xs:date" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="rowData">
+		<xs:sequence>
+			<xs:element name="rowLabel" type="xs:string" minOccurs="0"/>
+			<xs:element name="rowValue" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="qmassData">
+		<xs:complexContent>
+			<xs:extension base="xnat:mrAssessorData">
+				<xs:sequence minOccurs="0">
+					<xs:element name="patientInformation" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="weight" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>kg</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="height" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>cm</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="studyInformation" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="seriesNumber" type="xs:integer" minOccurs="0"/>
+								<xs:element name="acquisitionNumber" type="xs:integer" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="scanInformation" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="seriesDescription" type="xs:string" minOccurs="0"/>
+								<xs:element name="numberSlices" type="xs:integer" minOccurs="0"/>
+								<xs:element name="numberPhases" type="xs:integer" minOccurs="0"/>
+								<xs:element name="sliceThickness" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>mm</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="sliceGap" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>mm</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="fieldView" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>mm</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="imageType" type="xs:string" minOccurs="0"/>
+								<xs:element name="imageResolution" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>pixels</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="flipAngle" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>degrees</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="echoTime" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ms</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="repTime" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ms</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="nex" type="xs:string" minOccurs="0"/>
+								<xs:element name="tempResolution" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ms</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="phase1" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ms</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="heartRate" type="xs:integer" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>bpm</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="scanDuration" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="lvVolume" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="method" type="xs:string" minOccurs="0"/>
+								<xs:element name="bodySurfaceArea" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>m2</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="edPhaseNumber" type="xs:integer" minOccurs="0"/>
+								<xs:element name="esPhaseNumber" type="xs:integer" minOccurs="0"/>
+								<xs:element name="edPhaseTime" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ms</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="esPhaseTime" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ms</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="edVolume" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ml Normal Range: 101-236</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="edVolumeBSA" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ml/m2 Normal Range: 52-112</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="esVolume" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ml Normal Range: 28-93</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="esVolumeBSA" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ml/m2</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="strokeVolume" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ml</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="strokeVolumeBSA" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ml/m2</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="cardiacOutput" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>1/min</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="ejectionFraction" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>% Normal Range: 55-74</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="lvMassED" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>g Normal Range: 85-181</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="lvMassEDBSA" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>g/m2 Normal Range: 46-84</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="lvMassES" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>g</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="lvMassESBSA" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>g/m2</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="per" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ml/s</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="perEDV" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>EDV/s</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="tper" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ms</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="tperPhaseNumber" type="xs:integer" minOccurs="0"/>
+								<xs:element name="pfr" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ml/s</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="pfrEDV" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>EDV/s</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="tpfr" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>ms</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="tpfrPhaseNumber" type="xs:integer" minOccurs="0"/>
+								<xs:element name="lvDiameterSlice" type="xs:integer" minOccurs="0"/>
+								<xs:element name="shortening" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Fractional Shortening %</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="lvdd" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>mm</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="lvds" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>mm</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="asd" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>mm</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="ass" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>mm</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="pwd" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>mm</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="pws" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>mm</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="wallThickness" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="method" type="xs:string" minOccurs="0"/>
+								<xs:element name="edPhase" type="xs:integer" minOccurs="0"/>
+								<xs:element name="esPhase" type="xs:integer" minOccurs="0"/>
+								<xs:element name="edwt" type="jhsmr:rowData" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>mm</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="eswt" type="jhsmr:rowData" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>mm</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="wallThickening" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="method" type="xs:string" minOccurs="0"/>
+								<xs:element name="edPhase" type="xs:integer" minOccurs="0"/>
+								<xs:element name="esPhase" type="xs:integer" minOccurs="0"/>
+								<xs:element name="wtn" type="jhsmr:rowData" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>%</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="wallMotion" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="method" type="xs:string" minOccurs="0"/>
+								<xs:element name="edPhase" type="xs:integer" minOccurs="0"/>
+								<xs:element name="esPhase" type="xs:integer" minOccurs="0"/>
+								<xs:element name="wm" type="jhsmr:rowData" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>mm</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="myocardialTime" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="samplingRange" type="xs:string" minOccurs="0"/>
+								<xs:element name="calibrationMethod" type="xs:string" minOccurs="0"/>
+								<xs:element name="numberPoints" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Number of points for slope calculation ROI/MYO</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="baselinePhaseRange" type="xs:string" minOccurs="0"/>
+								<xs:element name="measurementPhaseRange" type="xs:string" minOccurs="0"/>
+								<xs:element name="amp" type="jhsmr:rowData" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Results for SI Analysis Parameter: Amplitude [au]</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="mu" type="jhsmr:rowData" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Results for SI Analysis Parameter: Max Upslope [au/s]</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="tmu" type="jhsmr:rowData" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Results for SI Analysis Parameter: Time to Max Upslope [s]</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="mi" type="jhsmr:rowData" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Results for SI Analysis Parameter: Mean Intensity [au]</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="thm" type="jhsmr:rowData" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Results for SI Analysis Parameter: Time to 50% Max [s]</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="t0" type="jhsmr:rowData" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Results for SI Analysis Parameter: T0 signal intensity [au]</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="bsi" type="jhsmr:rowData" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Results for SI Analysis Parameter: Baseline signal intensity [au]</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="ru" type="jhsmr:rowData" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Results for SI Analysis Parameter: Relative Upslope [%]</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="roiIntensityTime" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="resultsCurrentSlice" type="xs:string" minOccurs="0"/>
+								<xs:element name="calibrationMethod" type="xs:string" minOccurs="0"/>
+								<xs:element name="numberPoints" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Number of points for slope calculation ROI/MYO</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="baselinePhaseRange" type="xs:string" minOccurs="0"/>
+								<xs:element name="measurementPhaseRange" type="xs:string" minOccurs="0"/>
+								<xs:element name="roiResults" minOccurs="0" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="roiLabel" type="xs:string" minOccurs="0"/>
+											<xs:element name="amplitude" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>au</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="maxUpslope" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>au/s</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="timeMaxUpslope" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>ms</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="meanIntensity" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>au</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="timeHalfMax" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>ms</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="t0Intensity" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>au</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="baselineIntensity" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>au</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="relativeUpslope" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>au</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="lateEnhancement" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="phaseNumber" type="xs:integer" minOccurs="0"/>
+								<xs:element name="totalMyocardialMass" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>g</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="enhancementThreshold" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>au</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="scarTissueMass" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>g ( %)</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="transmuralityThreshold" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>%</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="nonViableMass" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>g ( %)</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="scarTissueVolume" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>l</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="nonViableVolume" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>l</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="scarTissuePercentage" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>%</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="nonViablePercentage" type="xs:float" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>%</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="segmentModel7" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								This is element is for Verison 7.1 or later
+								Segment Names:
+										1 basal anterior
+										2 basal anteroseptal
+										3 basal inferoseptal
+										4 basal inferior
+										5 basal inferolateral
+										6 basal anterolateral
+										7 mid anterior
+										8 mid anteroseptal
+										9 mid inferoseptal
+										10 mid inferior
+										11 mid inferolateral
+										12 mid anterolateral
+										13 apical anterior
+										14 apical septal
+										15 apical inferior
+										16 apical lateral
+							</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="samplingRange" type="xs:string" minOccurs="0"/>
+								<xs:element name="numberPoints" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Number of points for slope calculation ROI/MYO</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="baselinePhaseRange" type="xs:string" minOccurs="0"/>
+								<xs:element name="measurementPhaseRange" type="xs:string" minOccurs="0"/>
+								<xs:element name="calibrationMethod" type="xs:string" minOccurs="0"/>
+								<xs:element name="edPhase" type="xs:integer" minOccurs="0"/>
+								<xs:element name="esPhase" type="xs:integer" minOccurs="0"/>
+								<xs:element name="modelData" minOccurs="0" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence minOccurs="0">
+											<xs:element name="segmentCalcMethod" type="xs:string" minOccurs="0"/>
+											<xs:element name="wallThicknessMethod" type="xs:string" minOccurs="0"/>
+											<xs:element name="wallThickeningMethod" type="xs:string" minOccurs="0"/>
+											<xs:element name="wallMotionMethod" type="xs:string" minOccurs="0"/>
+											<xs:element name="segmentLabel" type="xs:string" minOccurs="0"/>
+											<xs:element name="edWallThickness" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>mm</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="esWallThickness" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>mm</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="wallThickening" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>mm</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="wallMotion" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>mm</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="amplitude" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>au</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="maxUpslope" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>au/s</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="timeMaxUpslope" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>ms</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="meanIntensity" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>au</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="timeHalfMax" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>ms</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="t0Intensity" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>au</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="baselineIntensity" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>au</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="relativeUpslope" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>%</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="scarTissuePercentage" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>%</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="nonViableTissue" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>%</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="myoCardialRegion" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence minOccurs="0">
+								<xs:element name="numberSegments" type="xs:integer" minOccurs="0"/>
+								<xs:element name="chordsOrder" type="xs:string" minOccurs="0"/>
+								<xs:element name="labels" type="xs:string" minOccurs="0"/>
+								<xs:element name="chords" type="xs:string" minOccurs="0"/>
+								<xs:element name="counts" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="softwareVersion" type="xs:string" use="optional"/>
+				<xs:attribute name="serialNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="analystName" type="xs:string" use="required"/>
+				<xs:attribute name="loginName" type="xs:string" use="optional"/>
+				<xs:attribute name="analysisDate" type="xs:date" use="optional"/>
+				<xs:attribute name="title" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
+
