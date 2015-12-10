@@ -2,17 +2,31 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>edu.emory.cci</groupId>
+    <groupId>org.eurekaclinical</groupId>
     <artifactId>aiw-dsb-xnat</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>XNAT Data Source Backend</name>
-    <url>http://maven.apache.org</url>
+    <url>https://github.com/eurekaclinical/aiw-dsb-xnat.git</url>
+    
+    <parent>
+        <groupId>org.eurekaclinical</groupId>
+        <artifactId>eurekaclinical-parent</artifactId>
+        <version>1-Alpha-4</version>
+    </parent>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <scm>
+        <connection>scm:git:https://github.com/eurekaclinical/aiw-dsb-xnat.git</connection>
+        <developerConnection>scm:git:https://github.com/eurekaclinical/aiw-dsb-xnat.git</developerConnection>
+        <url>https://github.com/eurekaclinical/aiw-dsb-xnat.git</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/eurekaclinical/aiw-dsb-xnat/issues</url>
+    </issueManagement>
     
     <licenses>
         <license>
@@ -26,18 +40,17 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.protempa</groupId>
+            <groupId>org.eurekaclinical</groupId>
             <artifactId>protempa-framework</artifactId>
-            <version>2.4-SNAPSHOT</version>
+            <version>3.0-Alpha-5</version>
         </dependency>
         <dependency>
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>
-            <version>0.9.9</version>
+            <version>0.9.10</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -49,18 +62,9 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
-                <version>0.12.3</version>
+                <version>0.13.1</version>
                 <executions>
                     <execution>
                         <goals>
