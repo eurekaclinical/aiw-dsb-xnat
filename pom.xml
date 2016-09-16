@@ -12,7 +12,7 @@
     <parent>
         <groupId>org.eurekaclinical</groupId>
         <artifactId>eurekaclinical-parent</artifactId>
-        <version>1-Alpha-4</version>
+        <version>1</version>
     </parent>
 
     <scm>
@@ -39,12 +39,13 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.eurekaclinical</groupId>
             <artifactId>protempa-framework</artifactId>
-            <version>3.0-Alpha-5</version>
+            <version>3.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
